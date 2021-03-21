@@ -102,6 +102,6 @@ Google Cloud Platform (GCP), offered by Google (company), is a suite of cloud co
 - Cloud monitoring and integration with OpenCensus for better insights
 - Easy migration as no change in code required to switch applications
 
-[Comparison of database services](https://www.notion.so/41f62cf854a04e95bef2037731516ac3)
+[Comparison of database services](comparision.html)
 
 # Choosing the right database
