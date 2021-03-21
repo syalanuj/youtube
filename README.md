@@ -1,2 +1,2 @@
-# youtube
-Code Repository for my youtube videos
+# Youtube Resources
+This repository contains all the code I use in my YouTube tutorials.
