@@ -18,6 +18,7 @@ Google Cloud Platform (GCP), offered by Google (company), is a suite of cloud co
 - With so many options in cloud at our disposal with a click of a button can sometimes be overwhelming or confusing
 
 ## Flowchart on selecting the right database
+![flowchart.png](flowchart.png)
 
 [**https://whimsical.com/choosing-the-right-database-in-gcp-M7L3jcgNZSiLqhF5nPxTxK**](https://whimsical.com/choosing-the-right-database-in-gcp-M7L3jcgNZSiLqhF5nPxTxK)
 
