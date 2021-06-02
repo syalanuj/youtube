@@ -9,6 +9,7 @@
 
 <Show more Elon Tweets>
 
+
 - We need to know what he is thinking
 - I want to invest based on signals, looking signals from ELON!
 
