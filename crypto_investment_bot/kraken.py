@@ -45,11 +45,13 @@ print(resp.json())
 # Construct the request and print the result
 resp = kraken_request('/0/private/AddOrder', {
     "nonce": str(int(1000*time.time())),
-    "ordertype": "limit",
+    "ordertype": "market",
     "type": "buy",
+    "volume": 50,
     "pair": "DOGEUSD",
-    "price": 0.3,
 }, api_key, api_sec)
 print(resp.json())  
 
+# %%
+resp
 # %%
