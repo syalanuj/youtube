@@ -5,12 +5,11 @@ from tweepy.streaming import StreamListener
 import socket
 import json
 
-#AAAAAAAAAAAAAAAAAAAAAD9WEgEAAAAAOpUZ7etqOM2j1tAcWPwodbmG1Mw%3DtrBiZeIdKzOFSnu3r9vSDJyfnHUx5Fg9WQFld6bQor6bj6gy1i
 # Set up your credentials
-consumer_key='XRe59TnfhDODaEdG20pKdGeDA'
-consumer_secret='NzTGdk9DmJTddwNty63l0sSbO7zStzfLvaBpyCFCEFimd5ONiK'
-access_token ='705037096340226049-FQGj1JJWSaVoGMaD8gtBoT4KhmVQMMz'
-access_secret='UkJYwHCV1vgvx4dbd5op0OqKukBgLXoWBTjqJPKTnlUgl'
+consumer_key=''
+consumer_secret=''
+access_token =''
+access_secret=''
 
 
 class TweetsListener(StreamListener):
