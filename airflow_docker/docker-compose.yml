@@ -1,0 +1,25 @@
+---
+version: '3.4'
+
+services:
+  flask_server:
+    image: "flask-server:latest"
+    volumes:
+      - ../server:/usr/src/app
+    ports:
+      - '5000:5000'
+    restart: always
+  airflow:
+    tty: true
+    image: lynx-airflow:latest
+    container_name: airflow
+    environment:
+      USER_ID: '${LOCAL_USER_ID:-9009}'
+      GOOGLE_APPLICATION_CREDENTIALS: /home/user/external-key.json
+    volumes:
+      - ${GCP_CREDENTIALS}:/home/user/external-key.json
+      - ${DAGS_FOLDER}:/home/user/airflow/dags
+      - ${LOGS_FOLDER}:/home/user/logs
+    ports:
+      - '8080:8080' # Airflow webserver
+      - '9001:9001' # Supervisord web interface
