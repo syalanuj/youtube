@@ -1,0 +1,23 @@
+---
+- name: create app dir ~/install-docker/
+  file:
+    state: directory
+    path: "/home/{{ ansible_user }}/install-docker/"
+    owner: "{{ ansible_user }}"
+  register: deploy_dir
+  tags: always
+
+- name: Copy install files
+  ansible.builtin.copy:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+  loop:
+    - { src: "../../../setup/instance-startup.sh", dest: "{{ deploy_dir.path }}"     }
+  tags: config
+
+- name: Run shell instance-startup.sh
+  ansible.builtin.shell: /bin/sh "{{ deploy_dir.path }}instance-startup.sh" >> instance_startup_log.txt
+  register: out
+
+- name: shell output
+  debug: var=out.stdout

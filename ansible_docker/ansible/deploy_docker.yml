@@ -1,0 +1,6 @@
+---
+- name: Deploying airflow containers
+  hosts: webservers
+  remote_user: syal
+  roles:
+    - deploy-docker

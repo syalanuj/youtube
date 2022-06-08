@@ -1,0 +1,6 @@
+---
+- name: Setting up Docker
+  hosts: webservers
+  remote_user: syal
+  roles:
+    - install-docker

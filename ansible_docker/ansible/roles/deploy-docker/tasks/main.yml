@@ -1,0 +1,40 @@
+- name: create app dir ~/deploy_docker/
+  file:
+    state: directory
+    path: "/home/{{ ansible_user }}/deploy_docker/"
+    owner: "{{ ansible_user }}"
+  register: deploy_dir
+  tags: always
+
+- name: Build docker image
+  command: "cd ../docker/airflow/ && sh build_docker.sh"
+  delegate_to: localhost
+
+- name: Copy docker image
+  ansible.builtin.copy:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+  loop:
+    - { src: "../../../docker/airflow/airflow.tar.gz", dest: "{{ deploy_dir.path }}"     }
+
+- name: Docker Load Image Airflow
+  ansible.builtin.shell:
+    cmd: sudo zcat {{ deploy_dir.path }}airflow.tar.gz | sudo docker load
+
+- name: create app dir ~/dags/
+  file:
+    state: directory
+    path: "/home/{{ ansible_user }}/dags/"
+    owner: "{{ ansible_user }}"
+  register: dags_dir
+  tags: always
+
+- name: Copy Dags
+  ansible.builtin.copy:
+    src: "../../../dags/"
+    dest: "{{ dags_dir.path }}"
+    directory_mode: yes
+    owner: "{{ ansible_user }}"
+
+- name: Docker Compose UP
+  ansible.builtin.shell: /bin/sh "{{ deploy_dir.path }}run_compose.sh" >> run_compose.txt

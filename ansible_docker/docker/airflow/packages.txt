@@ -1,0 +1,6 @@
+gosu
+supervisor
+python3
+python3-pip
+gettext-base
+gzip
