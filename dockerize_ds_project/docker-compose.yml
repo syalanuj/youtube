@@ -1,0 +1,25 @@
+---
+version: '1.0'
+services:
+  jupyterlab:
+    image: jupyterlab:latest
+    container_name: juputerlabinstance
+    environment:
+      GOOGLE_APPLICATION_CREDENTIALS: ""
+    volumes:
+      - ./data/:/project/data/
+      - ./models/:/project/models/
+      - ./notebooks/:/project/notebooks/
+    ports:
+    - '8888:8888'
+  fastapi:
+    image: fast-api:latest
+    container_name: fastapiinstance
+    environment:
+      API_KEY: ""
+    volumes:
+    - ./apis:/code/app
+    - ./models:/code/app/models
+    ports:
+    - '8000:8000'
+
