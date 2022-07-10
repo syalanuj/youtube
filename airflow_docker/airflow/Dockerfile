@@ -37,7 +37,7 @@ RUN wget -qO- https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-
 
 # Copy configuration files
 COPY config/airflow.cfg $AIRFLOW_HOME/
-COPY supervisord.conf /home/user/supervisor/conf.d/supervisord.conf
+COPY config/supervisord.conf /home/user/supervisor/conf.d/supervisord.conf
 RUN mkdir /home/user/supervisor/logs
 
 
