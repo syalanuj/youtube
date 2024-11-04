@@ -1,18 +1,19 @@
 # %%
+
+#Import  and env setup
 import great_expectations as gx
 print(gx.__version__)
 import os
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "/Users/anujsyal/Desktop/anuj/youtube/youtube/great_expectations_tutorial/youtube-tutorial-440608-702e9f4c100a.json"
 # %%
+# gx context setup -- file mode
 context = gx.get_context(mode='file')
 
 # %%
+# define a `Data Source`
 data_source_name = "flights_data_source"
 bucket_or_name = "flights-dataset-yt-tutorial"
 gcs_options = {}
-
-# %%
-# define a `Data Source`
 data_source = context.data_sources.add_pandas_gcs(
     name="flights_data_source", bucket_or_name="flights-dataset-yt-tutorial", gcs_options=gcs_options
 )
