@@ -1,0 +1,55 @@
+config_version: 4.0
+config_variables_file_path: uncommitted/config_variables.yml
+plugins_directory: plugins/
+stores:
+  expectations_store:
+    class_name: ExpectationsStore
+    store_backend:
+      class_name: TupleFilesystemStoreBackend
+      base_directory: gx_store/
+  validation_results_store:
+    class_name: ValidationResultsStore
+    store_backend:
+      class_name: TupleFilesystemStoreBackend
+      base_directory: uncommitted/validations/
+  checkpoint_store:
+    class_name: CheckpointStore
+    store_backend:
+      class_name: TupleFilesystemStoreBackend
+      suppress_store_backend_id: true
+      base_directory: checkpoints/
+  validation_definition_store:
+    class_name: ValidationDefinitionStore
+    store_backend:
+      class_name: TupleFilesystemStoreBackend
+      base_directory: validation_definitions/
+expectations_store_name: expectations_store
+validation_results_store_name: validation_results_store
+checkpoint_store_name: checkpoint_store
+data_docs_sites:
+  local_site:
+    class_name: SiteBuilder
+    show_how_to_buttons: true
+    store_backend:
+      class_name: TupleFilesystemStoreBackend
+      base_directory: uncommitted/data_docs/local_site/
+    site_index_builder:
+      class_name: DefaultSiteIndexBuilder
+fluent_datasources:
+  flights_data_source:
+    type: pandas_gcs
+    id: c834348e-eb53-4df1-b844-b3c620d30452
+    assets:
+      goibibo_flights_data:
+        type: csv
+        id: 5204fffd-f5ee-4a35-8dc7-0a135e48d004
+        batch_definitions:
+          goibibo_flights_data_whole:
+            id: 23a10b91-9e81-4db4-b1d6-a9a445bcdb4e
+            partitioner:
+        connect_options:
+          gcs_prefix: goibibo_flights_data.csv
+    bucket_or_name: flights-dataset-yt-tutorial
+    gcs_options: {}
+analytics_enabled:
+data_context_id: 4ad20f76-770d-45d3-90ce-d1d3de6ed4ae

@@ -1,0 +1,30 @@
+{
+  "expectations": [
+    {
+      "id": "e1f5a9fd-84c9-42f5-9699-1b8fb627fc05",
+      "kwargs": {
+        "column": "airline"
+      },
+      "meta": {},
+      "type": "expect_column_values_to_not_be_null"
+    },
+    {
+      "id": "74883489-a5b7-4e31-9d61-ebb4e9920dfa",
+      "kwargs": {
+        "column": "class",
+        "value_set": [
+          "economy",
+          "business"
+        ]
+      },
+      "meta": {},
+      "type": "expect_column_distinct_values_to_be_in_set"
+    }
+  ],
+  "id": "737bbfda-6f05-4599-8969-dba515f0dc88",
+  "meta": {
+    "great_expectations_version": "1.2.1"
+  },
+  "name": "flight_expectation_suite",
+  "notes": null
+}
